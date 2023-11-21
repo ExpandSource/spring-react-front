@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import TestApi from './components/TestApi';
+import AuthApp from './components/AuthApp';
 
 function App() {
   return (
     <div className='App'>
-      <TestApi />
+      <AuthApp />
     </div>
   );
 }
