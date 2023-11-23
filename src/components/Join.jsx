@@ -1,7 +1,23 @@
+import axios from 'axios';
 import React from 'react';
 
 function Join() {
-  function handleSubmit() {}
+  function handleSubmit(event) {
+    // 기본 새로고침 방지
+    event.preventDefault();
+
+    const form = event.target; // 폼 태그 데이터
+    const formData = new FormData(form); // 폼 데이터 가져오는 객체
+
+    const url = 'http://localhost:8080/api/member';
+    axios.post(url, formData).then((reponse) => {
+      if (reponse.status === 200) {
+        console.log(reponse);
+        console.log('회원가입이 완료되었습니다. ', reponse.data);
+        alert('회원가입이 완료되었습니다.');
+      }
+    });
+  }
   return (
     <div>
       <h2>회원가입</h2>

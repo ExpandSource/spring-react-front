@@ -17,7 +17,7 @@ function Login() {
     const password = formData.get('password');
 
     // 인증 컨텍스트에서 로그인 함수 받아 실행
-    login(email, password);
+    await login(email, password);
   };
   return (
     <div>
