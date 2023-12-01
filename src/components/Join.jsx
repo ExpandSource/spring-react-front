@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { apiClient } from './api/ApiClient';
 
 function Join() {
   function handleSubmit(event) {
@@ -9,8 +10,8 @@ function Join() {
     const form = event.target; // 폼 태그 데이터
     const formData = new FormData(form); // 폼 데이터 가져오는 객체
 
-    const url = 'http://localhost:8080/api/member';
-    axios.post(url, formData).then((reponse) => {
+    const url = '/api/member';
+    apiClient.post(url, formData).then((reponse) => {
       if (reponse.status === 200) {
         console.log(reponse);
         console.log('회원가입이 완료되었습니다. ', reponse.data);
